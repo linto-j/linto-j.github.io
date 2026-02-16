@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
+
         html {
             scroll-behavior: smooth;
         }
@@ -12,8 +13,22 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #0f172a;
-            color: #e2e8f0;
+            background-color: #f8fafc;
+            color: #1e293b;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark mode automatically */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #0f172a;
+                color: #e2e8f0;
+            }
+
+            nav a { color: #94a3b8; }
+            nav a:hover { color: #38bdf8; }
+            footer { border-top: 1px solid #334155; color: #64748b; }
+            h2 { border-bottom: 1px solid #334155; }
         }
 
         .container {
@@ -23,24 +38,31 @@
         }
 
         nav {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             font-size: 15px;
         }
 
         nav a {
-            color: #94a3b8;
+            color: #475569;
             text-decoration: none;
             margin-right: 20px;
         }
 
         nav a:hover {
-            color: #38bdf8;
+            color: #0ea5e9;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         h1 {
             font-size: 46px;
             margin-bottom: 5px;
-            color: #38bdf8;
+            color: #0ea5e9;
         }
 
         .location {
@@ -51,16 +73,24 @@
 
         .tagline {
             font-size: 20px;
-            color: #94a3b8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             line-height: 1.6;
+        }
+
+        .button {
+            background: #0ea5e9;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
         }
 
         h2 {
             margin-top: 70px;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid #e2e8f0;
             padding-bottom: 10px;
-            color: #f8fafc;
         }
 
         p {
@@ -73,39 +103,22 @@
             line-height: 1.9;
         }
 
-        .highlight {
-            color: #38bdf8;
-        }
-
         .section {
             margin-bottom: 80px;
-        }
-
-        .cta {
-            margin-top: 20px;
-        }
-
-        .button {
-            background: #38bdf8;
-            color: #0f172a;
-            padding: 12px 22px;
-            border-radius: 6px;
-            font-weight: bold;
-            display: inline-block;
-            text-decoration: none;
         }
 
         footer {
             margin-top: 80px;
             padding-top: 30px;
-            border-top: 1px solid #334155;
+            border-top: 1px solid #e2e8f0;
             font-size: 14px;
             color: #64748b;
         }
 
-        a {
-            color: #38bdf8;
-            text-decoration: none;
+        img.profile {
+            width: 180px;
+            border-radius: 12px;
+            margin-top: 20px;
         }
 
     </style>
@@ -122,14 +135,23 @@
 <a href="#contact">Contact</a>
 </nav>
 
+<div class="hero">
+<div>
+<h1>Linto Jose</h1>
+<p class="location">Spain | Open to Global Data Center & Infrastructure Opportunities</p>
+
 <p class="tagline">
-Architecting scalable <span class="highlight">100G leaf-spine data center fabrics</span> 
-using L3 underlay and BGP to deliver deterministic, high-availability infrastructure 
-for production environments.
+Architecting scalable 100G leaf-spine data center fabrics using L3 underlay and BGP 
+to deliver deterministic, high-availability infrastructure for production environments.
 </p>
 
-<div class="cta">
 <a href="Linto_Jose_CV.pdf" download class="button">Download CV</a>
+</div>
+
+<div>
+<!-- Uncomment after uploading profile.jpg -->
+<!-- <img src="profile.jpg" alt="Linto Jose" class="profile"> -->
+</div>
 </div>
 
 <div class="section" id="about">
@@ -162,7 +184,6 @@ resiliency, and operational simplicity.
 <li>Structured segmentation strategy for multi-tenant GPU environments</li>
 <li>Architected high-availability topology with no single point of failure</li>
 </ul>
-
 <p>
 Approach: Design-first mindset focused on scalability, simplicity, and operational clarity.
 </p>
@@ -178,15 +199,6 @@ Built for deterministic routing, operational simplicity, and horizontal scalabil
 <p>
 <a href="100g-fabric.html">View Full Architecture Case Study →</a>
 </p>
-
-<ul>
-<li>100G spine-to-leaf uplinks</li>
-<li>L3 underlay with BGP-based dynamic routing</li>
-<li>Structured IP addressing strategy</li>
-<li>Service leaf architecture for north-south traffic control</li>
-<li>Optimized for GPU-intensive workloads</li>
-<li>Zero single-point-of-failure design</li>
-</ul>
 </div>
 
 <div class="section">
@@ -202,7 +214,7 @@ Built for deterministic routing, operational simplicity, and horizontal scalabil
 <div class="section" id="contact">
 <h2>Contact</h2>
 <p>
-LinkedIn: 
+LinkedIn:
 <a href="https://www.linkedin.com/in/ljdev/" target="_blank">
 linkedin.com/in/ljdev
 </a>
