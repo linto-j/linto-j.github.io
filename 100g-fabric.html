@@ -3,6 +3,7 @@
 <head>
     <title>100G Data Center Fabric | Linto Jose</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         body {
             margin: 0;
@@ -20,6 +21,7 @@
         h1 {
             color: #38bdf8;
             font-size: 42px;
+            margin-bottom: 10px;
         }
 
         h2 {
@@ -42,6 +44,31 @@
             margin-bottom: 40px;
         }
 
+        .note {
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        pre {
+            background-color: #111827;
+            padding: 20px;
+            border-radius: 10px;
+            color: #38bdf8;
+            overflow-x: auto;
+            line-height: 1.5;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #0b1220;
+            border: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 14px;
+            margin-right: 8px;
+            margin-top: 8px;
+        }
     </style>
 </head>
 
@@ -52,50 +79,118 @@
 <a href="index.html">← Back to Homepage</a>
 </div>
 
-<h1>100G Leaf-Spine Data Center Fabric</h1>
+<h1>100G Leaf-Spine Data Center Fabric (with Service Leaf / Border)</h1>
 
 <p>
-This project involved designing and deploying a high-performance 100G leaf-spine fabric
-using L3 underlay architecture with BGP routing to support scalable, resilient,
-and high-throughput workloads.
+This project focused on architecting and deploying a production-grade 100G leaf-spine data center fabric
+using a Layer-3 underlay with BGP routing. The design was built to support high east-west throughput
+(GPU / compute workloads) while also providing a controlled and secure north-south path via a
+<strong>Service Leaf / Border</strong> for internet breakout and shared services.
 </p>
 
-<h2>Architecture Overview</h2>
+<div>
+<span class="pill">100G Leaf-Spine</span>
+<span class="pill">L3 Underlay</span>
+<span class="pill">BGP</span>
+<span class="pill">Service Leaf / Border</span>
+<span class="pill">Segmentation</span>
+<span class="pill">High Availability</span>
+</div>
+
+<h2>Executive Design Objectives</h2>
 <ul>
-<li>Spine-Leaf topology with 100G uplinks</li>
-<li>L3 underlay using BGP for deterministic routing</li>
-<li>Structured IP addressing strategy</li>
-<li>Service leaf for north-south traffic control</li>
-<li>Multi-tenant VLAN segmentation model</li>
+<li>Deterministic routing and fast convergence (no STP dependency)</li>
+<li>High east-west throughput for compute/GPU clusters</li>
+<li>Controlled north-south traffic via a Service Leaf / Border layer</li>
+<li>Multi-tenant segmentation with scalable VLAN/IP structure</li>
+<li>High availability with no single point of failure</li>
+<li>Operational simplicity: predictable troubleshooting and growth model</li>
 </ul>
+
+<h2>Logical Topology Overview</h2>
+<p class="note">Simplified logical view (names are generic; no internal identifiers).</p>
+
+<pre>
+                       Upstream / ISP / WAN
+                               |
+                         (Firewall / NAT)
+                               |
+                         Service Leaf / Border
+                               |
+                    ===========================
+                    ||     Spine Layer      ||
+                    ||  Spine-1   Spine-2   ||
+                    ===========================
+                       |   \       /   |
+                  100G |    \     /    | 100G
+                       |     \   /     |
+                -----------------------------
+                |           Leaf Layer       |
+                |  GPU Leaf(s)   Service Leaf|
+                -----------------------------
+                   |    |    |
+                Compute / GPU Nodes / VMs
+</pre>
+
+<h2>Fabric Roles</h2>
+<ul>
+<li><strong>Spines</strong>: high-speed core; ECMP transit between leafs</li>
+<li><strong>GPU Leafs</strong>: top-of-rack leafs for compute/GPU nodes; optimized for east-west traffic</li>
+<li><strong>Service Leaf / Border</strong>: controlled north-south path to shared services and WAN/Internet breakout (often behind firewall/NAT)</li>
+</ul>
+
 <h2>Why L3 Fabric Instead of L2?</h2>
 <p>
-A Layer 3 fabric was selected to eliminate spanning-tree dependency, 
-reduce broadcast domain complexity, and enable deterministic routing behavior. 
-This approach improves scalability and simplifies operational troubleshooting.
+A Layer-3 fabric was selected to avoid Layer-2 scaling limitations (large broadcast domains, STP complexity)
+and to enable ECMP across multiple equal-cost routed paths. This provides deterministic forwarding behavior,
+simplifies troubleshooting, and allows predictable scale-out by adding more leaf switches.
 </p>
+
 <h2>Routing Model</h2>
 <p>
-The underlay was built using BGP to provide dynamic route exchange between leaf and spine layers. 
-This ensured scalable horizontal expansion while maintaining predictable routing paths.
+The underlay uses BGP for route exchange between leaf and spine layers. Each leaf establishes BGP peering
+with all spines (or via a standardized fabric peering model), enabling full fabric reachability. ECMP
+distributes flows across equal-cost paths and maintains predictable convergence behavior during failures.
 </p>
 
-    
-
-<h2>Design Decisions</h2>
+<h2>North-South vs East-West Traffic Flows</h2>
 <ul>
-<li>Chose L3 fabric over L2 to eliminate STP and improve scalability</li>
-<li>Implemented BGP underlay for dynamic and deterministic routing</li>
-<li>Designed segmentation for multi-tenant GPU workloads</li>
-<li>Ensured high availability with no single point of failure</li>
+<li><strong>East-West (Compute ↔ Compute)</strong>: stays within fabric; leaf-spine-leaf paths using ECMP</li>
+<li><strong>North-South (Compute ↔ Internet/WAN)</strong>: steered toward the <strong>Service Leaf / Border</strong>, then to firewall/NAT and upstream</li>
+<li><strong>Shared Services</strong>: DNS/NTP/management or shared networks can be anchored near the service/border zone (policy controlled)</li>
+</ul>
+
+<h2>Segmentation Strategy</h2>
+<ul>
+<li>Workload segmentation aligned with tenant / environment needs</li>
+<li>VLAN/IP structure designed for predictable expansion and isolation</li>
+<li>Optional VRF-based separation for multi-tenant environments (where required)</li>
+<li>Service/Bord​er layer used to enforce policy boundaries for north-south access</li>
+</ul>
+
+<h2>IP Addressing Strategy</h2>
+<ul>
+<li>Loopbacks per device for stable routing identifiers</li>
+<li>Point-to-point links (often /31) for spine-leaf interconnects</li>
+<li>Clear separation of underlay addressing vs tenant/service addressing</li>
+<li>Consistent naming and allocation model for operational clarity</li>
+</ul>
+
+<h2>High Availability Model</h2>
+<ul>
+<li>Dual spines + redundant uplinks from each leaf</li>
+<li>ECMP-based traffic distribution and resilience</li>
+<li>Failure domain isolation at leaf level</li>
+<li>Service Leaf / Border redundancy (where applicable) to avoid single choke point</li>
 </ul>
 
 <h2>Key Outcomes</h2>
 <ul>
-<li>High-throughput east-west traffic optimization</li>
-<li>Simplified troubleshooting model</li>
-<li>Scalable architecture for future expansion</li>
-<li>Production-grade resilience and stability</li>
+<li>High-throughput east-west performance suited to GPU-intensive workloads</li>
+<li>Deterministic routing behavior with simplified operations</li>
+<li>Controlled and secure north-south breakout via Service Leaf / Border</li>
+<li>Scalable architecture designed for future expansion</li>
+<li>Production-grade resiliency and predictable troubleshooting</li>
 </ul>
 
 </div>
