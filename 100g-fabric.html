@@ -68,6 +68,19 @@ and high-throughput workloads.
 <li>Service leaf for north-south traffic control</li>
 <li>Multi-tenant VLAN segmentation model</li>
 </ul>
+<h2>Why L3 Fabric Instead of L2?</h2>
+<p>
+A Layer 3 fabric was selected to eliminate spanning-tree dependency, 
+reduce broadcast domain complexity, and enable deterministic routing behavior. 
+This approach improves scalability and simplifies operational troubleshooting.
+</p>
+<h2>Routing Model</h2>
+<p>
+The underlay was built using BGP to provide dynamic route exchange between leaf and spine layers. 
+This ensured scalable horizontal expansion while maintaining predictable routing paths.
+</p>
+
+    
 
 <h2>Design Decisions</h2>
 <ul>
