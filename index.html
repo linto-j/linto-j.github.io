@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Linto Jose | 100G Data Center & Infrastructure Engineer</title>
+    <title>Linto Jose | Data Center Network & Infrastructure Engineer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
@@ -20,11 +18,7 @@
 
         /* Dark mode automatically */
         @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #0f172a;
-                color: #e2e8f0;
-            }
-
+            body { background-color: #0f172a; color: #e2e8f0; }
             nav a { color: #94a3b8; }
             nav a:hover { color: #38bdf8; }
             footer { border-top: 1px solid #334155; color: #64748b; }
@@ -48,9 +42,7 @@
             margin-right: 20px;
         }
 
-        nav a:hover {
-            color: #0ea5e9;
-        }
+        nav a:hover { color: #0ea5e9; }
 
         .hero {
             display: flex;
@@ -61,24 +53,19 @@
 
         h1 {
             font-size: 46px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             color: #0ea5e9;
-        }
-
-        .location {
-            font-size: 14px;
-            color: #64748b;
-            margin-bottom: 20px;
         }
 
         .tagline {
             font-size: 20px;
             margin-bottom: 30px;
             line-height: 1.6;
+            max-width: 600px;
         }
 
         .button {
-            background: #0ea5e9;
+            background: #0284c7;
             color: white;
             padding: 12px 22px;
             border-radius: 6px;
@@ -93,19 +80,10 @@
             padding-bottom: 10px;
         }
 
-        p {
-            font-size: 18px;
-            line-height: 1.8;
-        }
+        p { font-size: 18px; line-height: 1.8; }
+        ul { font-size: 17px; line-height: 1.9; }
 
-        ul {
-            font-size: 17px;
-            line-height: 1.9;
-        }
-
-        .section {
-            margin-bottom: 80px;
-        }
+        .section { margin-bottom: 80px; }
 
         footer {
             margin-top: 80px;
@@ -121,10 +99,9 @@
             margin-top: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
-        
-        .hero div:last-child {
-            margin-top: 30px;
-        }
+
+        .hero div:last-child { margin-top: 30px; }
+
     </style>
 </head>
 
@@ -134,6 +111,7 @@
 <nav>
 <a href="#about">About</a>
 <a href="#expertise">Expertise</a>
+<a href="#automation">Automation</a>
 <a href="#impact">Impact</a>
 <a href="#project">100G Project</a>
 <a href="#contact">Contact</a>
@@ -142,11 +120,10 @@
 <div class="hero">
 <div>
 <h1>Linto Jose</h1>
-<p class="location">Spain | Open to Global Data Center & Infrastructure Opportunities</p>
 
 <p class="tagline">
-Architecting scalable 100G leaf-spine data center fabrics using L3 underlay and BGP 
-to deliver deterministic, high-availability infrastructure for production environments.
+Designing scalable 100G leaf-spine data center fabrics using Layer-3 underlay and BGP, 
+combined with infrastructure automation and source-of-truth driven network design.
 </p>
 
 <a href="Linto_Jose_CV.pdf" download class="button">Download CV</a>
@@ -160,10 +137,10 @@ to deliver deterministic, high-availability infrastructure for production enviro
 <div class="section" id="about">
 <h2>About Me</h2>
 <p>
-Data Center Network Engineer with hands-on experience designing and deploying 
-100G leaf-spine fabrics using L3 underlay and BGP routing. 
-Focused on building scalable, production-grade infrastructure optimized for performance, 
-resiliency, and operational simplicity.
+Data Center Network Engineer specializing in high-performance 100G leaf-spine architecture, 
+BGP-based L3 underlay design, and scalable infrastructure deployments. 
+Focused on building deterministic, production-grade networks optimized for performance, 
+resilience, and operational simplicity.
 </p>
 </div>
 
@@ -172,9 +149,26 @@ resiliency, and operational simplicity.
 <ul>
 <li>100G Leaf-Spine Fabric Architecture</li>
 <li>BGP Underlay & L3 Routing Design</li>
+<li>Service Leaf / Border Architecture (North-South Control)</li>
 <li>VLAN Segmentation & Multi-Tenant Networks</li>
-<li>Service Leaf Internet Breakout Architecture</li>
 <li>High Availability & Infrastructure Scaling</li>
+<li>Infrastructure as Code (IaC) & Network Automation</li>
+</ul>
+</div>
+
+<div class="section" id="automation">
+<h2>Network Automation & Source of Truth</h2>
+<p>
+Designed and implemented automation workflows using NetBox as the source of truth, 
+integrated with Ansible for intent-driven configuration deployment.
+</p>
+
+<ul>
+<li>NetBox-driven VLAN and IP intent modeling</li>
+<li>Ansible playbooks for automated SVI and BGP configuration</li>
+<li>Dynamic inventory integration with fabric devices</li>
+<li>Standardized configuration templates for scalable deployments</li>
+<li>Automation-first approach to reduce human error and increase consistency</li>
 </ul>
 </div>
 
@@ -182,21 +176,20 @@ resiliency, and operational simplicity.
 <h2>Engineering Impact</h2>
 <ul>
 <li>Designed scalable 100G fabric optimized for high east-west traffic workloads</li>
-<li>Eliminated L2 loop dependency by implementing L3 underlay architecture</li>
-<li>Improved deterministic troubleshooting through BGP-based routing model</li>
+<li>Eliminated L2 loop dependency via L3 underlay architecture</li>
+<li>Improved deterministic troubleshooting using BGP-based routing</li>
 <li>Structured segmentation strategy for multi-tenant GPU environments</li>
-<li>Architected high-availability topology with no single point of failure</li>
+<li>Architected topology with zero single point of failure</li>
+<li>Reduced configuration drift through automation-driven deployments</li>
 </ul>
-<p>
-Approach: Design-first mindset focused on scalability, simplicity, and operational clarity.
-</p>
 </div>
 
 <div class="section" id="project">
 <h2>Featured Project: 100G Data Center Fabric</h2>
 <p>
-Designed and deployed a high-performance 100G leaf-spine data center fabric using L3 underlay with BGP routing.
-Built for deterministic routing, operational simplicity, and horizontal scalability.
+Designed and deployed a production-grade 100G leaf-spine fabric using L3 underlay 
+with BGP routing and a dedicated Service Leaf / Border layer for north-south control.
+Built for deterministic routing, horizontal scalability, and automation integration.
 </p>
 
 <p>
@@ -209,8 +202,8 @@ Built for deterministic routing, operational simplicity, and horizontal scalabil
 <ul>
 <li>CCNP Enterprise (Cisco)</li>
 <li>CompTIA A+</li>
-<li>Microsoft Certified Solutions Expert (Cloud & Infrastructure)</li>
-<li>Microsoft 365 Modern Desktop Administrator Associate</li>
+<li>Microsoft Certified Solutions Expert</li>
+<li>Microsoft 365 Modern Desktop Administrator</li>
 </ul>
 </div>
 
