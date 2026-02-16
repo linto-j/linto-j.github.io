@@ -3,7 +3,12 @@
 <head>
     <title>Linto Jose | 100G Data Center & Infrastructure Engineer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -34,14 +39,20 @@
 
         h1 {
             font-size: 46px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             color: #38bdf8;
+        }
+
+        .location {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
         }
 
         .tagline {
             font-size: 20px;
             color: #94a3b8;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             line-height: 1.6;
         }
 
@@ -66,6 +77,24 @@
             color: #38bdf8;
         }
 
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .cta {
+            margin-top: 20px;
+        }
+
+        .button {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+        }
+
         footer {
             margin-top: 80px;
             padding-top: 30px;
@@ -88,38 +117,36 @@
 <nav>
 <a href="#about">About</a>
 <a href="#expertise">Expertise</a>
-<a href="#stack">Technical Stack</a>
+<a href="#impact">Impact</a>
 <a href="#project">100G Project</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <h1>Linto Jose</h1>
+<p class="location">Spain | Open to Global Data Center & Infrastructure Opportunities</p>
 
 <p class="tagline">
-Architecting scalable 100G leaf-spine data center fabrics using L3 underlay and BGP 
-to deliver deterministic, high-availability infrastructure for production environments.
-</p>
-<p style="margin-top:20px;">
-<a href="Linto_Jose_CV.pdf" download 
-style="background:#38bdf8;
-color:#0f172a;
-padding:12px 22px;
-border-radius:6px;
-font-weight:bold;
-display:inline-block;">
-Download CV
-</a>
-</p>
-    
-<h2 id="about">About Me</h2>
-<p>
-Data Center Network Engineer specializing in 100G leaf-spine architecture, 
-BGP-based L3 underlay design, VLAN segmentation, and scalable infrastructure deployments.
-Experienced in building production-grade data center networks optimized for performance, 
-resilience, and future growth.
+Architecting scalable <span class="highlight">100G leaf-spine data center fabrics</span> 
+using L3 underlay and BGP to deliver deterministic, high-availability infrastructure 
+for production environments.
 </p>
 
-<h2 id="expertise">Core Expertise</h2>
+<div class="cta">
+<a href="Linto_Jose_CV.pdf" download class="button">Download CV</a>
+</div>
+
+<div class="section" id="about">
+<h2>About Me</h2>
+<p>
+Data Center Network Engineer with hands-on experience designing and deploying 
+100G leaf-spine fabrics using L3 underlay and BGP routing. 
+Focused on building scalable, production-grade infrastructure optimized for performance, 
+resiliency, and operational simplicity.
+</p>
+</div>
+
+<div class="section" id="expertise">
+<h2>Core Expertise</h2>
 <ul>
 <li>100G Leaf-Spine Fabric Architecture</li>
 <li>BGP Underlay & L3 Routing Design</li>
@@ -127,56 +154,72 @@ resilience, and future growth.
 <li>Service Leaf Internet Breakout Architecture</li>
 <li>High Availability & Infrastructure Scaling</li>
 </ul>
+</div>
 
-<h2 id="stack">Technical Stack</h2>
-<p>
-Routing: BGP, L3 Underlay Design<br>
-Architecture: Leaf-Spine (100G Fabric)<br>
-Switching: Enterprise Data Center Platforms<br>
-Segmentation: Structured VLAN & IP Strategy<br>
-Design Focus: Deterministic Routing, Scalability, Resilience
-</p>
+<div class="section" id="impact">
 <h2>Engineering Impact</h2>
 <ul>
-<li>Designed scalable 100G fabric for high east-west traffic workloads</li>
-<li>Eliminated L2 loop dependency by implementing L3 underlay</li>
-<li>Improved troubleshooting model using deterministic BGP routing</li>
-<li>Structured segmentation strategy for multi-tenant environments</li>
+<li>Designed scalable 100G fabric optimized for high east-west traffic workloads</li>
+<li>Eliminated L2 loop dependency by implementing L3 underlay architecture</li>
+<li>Improved deterministic troubleshooting through BGP-based routing model</li>
+<li>Structured segmentation strategy for multi-tenant GPU environments</li>
 <li>Architected high-availability topology with no single point of failure</li>
 </ul>
 
-<h2 id="project">Featured Project: 100G Data Center Fabric</h2>
+<p>
+Approach: Design-first mindset focused on scalability, simplicity, and operational clarity.
+</p>
+</div>
+
+<div class="section" id="project">
+<h2>Featured Project: 100G Data Center Fabric</h2>
 <p>
 Designed and deployed a high-performance 100G leaf-spine data center fabric using L3 underlay with BGP routing.
-Built for deterministic routing, operational simplicity, and high availability.
+Built for deterministic routing, operational simplicity, and horizontal scalability.
 </p>
-<p><a href="100g-fabric.html">View Full Architecture Case Study →</a></p>
+
+<p>
+<a href="100g-fabric.html">View Full Architecture Case Study →</a>
+</p>
 
 <ul>
 <li>100G spine-to-leaf uplinks</li>
-<li>L3 underlay with BGP-based routing</li>
-<li>Structured IP addressing plan</li>
-<li>Service leaf architecture for north-south control</li>
+<li>L3 underlay with BGP-based dynamic routing</li>
+<li>Structured IP addressing strategy</li>
+<li>Service leaf architecture for north-south traffic control</li>
 <li>Optimized for GPU-intensive workloads</li>
 <li>Zero single-point-of-failure design</li>
 </ul>
+</div>
 
+<div class="section">
 <h2>Certifications</h2>
 <ul>
-<li>CCNP Enterprise</li>
+<li>CCNP Enterprise (Cisco)</li>
 <li>CompTIA A+</li>
-<li>Microsoft Certified Solutions Expert</li>
-<li>Microsoft 365 Modern Desktop Administrator</li>
+<li>Microsoft Certified Solutions Expert (Cloud & Infrastructure)</li>
+<li>Microsoft 365 Modern Desktop Administrator Associate</li>
 </ul>
+</div>
 
-<h2 id="contact">Contact</h2>
+<div class="section" id="contact">
+<h2>Contact</h2>
 <p>
-LinkedIn: <a href="#">https://www.linkedin.com/in/ljdev/</a><br>
+LinkedIn: 
+<a href="https://www.linkedin.com/in/ljdev/" target="_blank">
+linkedin.com/in/ljdev
+</a>
+<br>
 Email: lizew.lj@gmail.com
 </p>
+</div>
 
 <footer>
-© 2026 Linto Jose | Data Center Network & Infrastructure Engineer
+© 2026 Linto Jose  
+<br>
+Data Center Network & Infrastructure Engineer  
+<br>
+Built with GitHub Pages
 </footer>
 
 </div>
