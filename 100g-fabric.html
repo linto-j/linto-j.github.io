@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>100G Data Center Fabric | Linto Jose</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        h1 {
+            color: #38bdf8;
+            font-size: 42px;
+        }
+
+        h2 {
+            margin-top: 60px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        p, li {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .back {
+            margin-bottom: 40px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="back">
+<a href="index.html">← Back to Homepage</a>
+</div>
+
+<h1>100G Leaf-Spine Data Center Fabric</h1>
+
+<p>
+This project involved designing and deploying a high-performance 100G leaf-spine fabric
+using L3 underlay architecture with BGP routing to support scalable, resilient,
+and high-throughput workloads.
+</p>
+
+<h2>Architecture Overview</h2>
+<ul>
+<li>Spine-Leaf topology with 100G uplinks</li>
+<li>L3 underlay using BGP for deterministic routing</li>
+<li>Structured IP addressing strategy</li>
+<li>Service leaf for north-south traffic control</li>
+<li>Multi-tenant VLAN segmentation model</li>
+</ul>
+
+<h2>Design Decisions</h2>
+<ul>
+<li>Chose L3 fabric over L2 to eliminate STP and improve scalability</li>
+<li>Implemented BGP underlay for dynamic and deterministic routing</li>
+<li>Designed segmentation for multi-tenant GPU workloads</li>
+<li>Ensured high availability with no single point of failure</li>
+</ul>
+
+<h2>Key Outcomes</h2>
+<ul>
+<li>High-throughput east-west traffic optimization</li>
+<li>Simplified troubleshooting model</li>
+<li>Scalable architecture for future expansion</li>
+<li>Production-grade resilience and stability</li>
+</ul>
+
+</div>
+</body>
+</html>
